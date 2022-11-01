@@ -1,3 +1,4 @@
+from kivy.metrics import dp
 from kivy.uix.image import Image
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
@@ -15,6 +16,7 @@ class MadeByImage(Image):
             elif touch.is_triple_tap:
                 if (self.parent.top * 0.6) < self.center_y < self.parent.top:
                     MDApp.get_running_app().change_root_screen("lock_screen")
+                    self.y = self.parent.y + dp(10)
             return True
         return super().on_touch_down(touch)
 
