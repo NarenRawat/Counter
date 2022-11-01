@@ -8,3 +8,6 @@ __pycache__/
 
 # Environments
 venv/
+
+# Temporary directory
+temp/
