@@ -1,0 +1,17 @@
+#:import MadeByImage libs.uix.baseclass.info_screen.MadeByImage
+
+<InfoScreen>:
+
+    MadeByImage:
+        source: 'assets/images/made_with.png'
+        allow_stretch: False
+        keep_ratio: True
+        size_hint: 0.6, None
+        pos_hint: {'center_x': 0.5}
+        y: root.y + dp(10)
+
+
+    MDIconButton:
+        icon: 'chevron-left'
+        pos_hint: {'x': 0, 'top': 1}
+        on_release: app.change_root_screen("counter")

@@ -1,0 +1,35 @@
+name: Android Build armeabi-v7a
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build
+        env:
+          APP_ANDROID_ARCHS: armeabi-v7a
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
+
+      - uses: jungwinter/split@v2
+        id: split
+        with:
+          msg: ${{ steps.buildozer.outputs.filename}}
+          separator: "/"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.split.outputs._1}}
+          path: ${{ steps.buildozer.outputs.filename}}
+

@@ -1,0 +1,14 @@
+{
+    "counter": {
+        "import": "from libs.uix.baseclass.counter_screen import CounterScreen",
+        "object": "CounterScreen()"
+    },
+    "info": {
+        "import": "from libs.uix.baseclass.info_screen import InfoScreen",
+        "object": "InfoScreen()"
+    },
+    "lock_screen": {
+        "import": "from libs.uix.baseclass.lock_screen import LockScreen",
+        "object": "LockScreen()"
+    }
+}
