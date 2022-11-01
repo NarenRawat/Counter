@@ -1,4 +1,4 @@
-name: Android Build x86-64
+name: Android Build x86_64
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
 
       - name: Build
         env:
-          APP_ANDROID_ARCHS: x86-64
+          APP_ANDROID_ARCHS: x86_64
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
 
