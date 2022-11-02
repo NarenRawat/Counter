@@ -11,3 +11,5 @@ venv/
 
 # Temporary directory
 temp/
+
+.kivy/
