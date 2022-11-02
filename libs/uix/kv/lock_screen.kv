@@ -1,13 +1,54 @@
 <LockScreen>:
 
     MDLabel:
-        id: main_label
+        id: top_label
         halign: 'center'
         adaptive_height: True
         pos_hint: {'center_x': 0.5, 'top': 0.95}
-        text: 'Log In'
-        bold: True
-        font_size: dp(50)
+        text: 'Enter PIN'
+        theme_text_color: 'Secondary'
+        font_size: dp(30)
+
+    MDIconButton:
+        icon: 'chevron-left'
+        x: root.x + dp(5)
+        top: root.top - dp(5)
+        on_release: app.change_root_screen('info_screen')
 
     MDBoxLayout:
         orientation: 'vertical'
+        size_hint: 1, 1
+        pos_hint: {'center_x': 0.5, 'y': 0.1}
+        adaptive_height: True
+        spacing: dp(50)
+
+        Keypad:
+            pos_hint: {'center_x': 0.5}
+
+<Keypad>:
+    cols: 3
+    adaptive_size: True
+    spacing: dp(15)
+
+<TextKey>:
+    canvas.after:
+        Color:
+            rgba: self.key_color
+        Line:
+            width: dp(1)
+            circle: (self.center_x, self.center_y, self.width / 2)
+            close: True
+
+    font_size: '40dp'
+    bold: True
+    halign: 'center'
+    size_hint: None, None
+    theme_text_color: 'Custom'
+    text_color: self.key_color
+    ripple_color: self.key_color
+
+<IconKey>:
+    icon_size: '40dp'
+    theme_icon_color: 'Custom'
+    icon_color: self.key_color
+    ripple_color: self.key_color
