@@ -1,11 +1,10 @@
 <CounterScreen>:
     name: 'counter_screen'
 
-
     MDBoxLayout:
         id: main_box
         orientation: 'vertical'
-        adaptive_size: True
+        adaptive_height: True
         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
         spacing: dp(40)
         padding: dp(10)
@@ -14,24 +13,28 @@
             text: 'Count'
             icon: 'plus'
             font_size: sp(30)
+            pos_hint: {'center_x': 0.5}
             on_release: root.increase_count()
             
         MDLabel:
             text: root.count
             halign: 'center'
             font_size: sp(60)
-            size: self.texture_size
+            size_hint_y: None
+            pos_hint: {'center_x': 0.5}
+            height: self.texture_size[1]
 
         MDFillRoundFlatIconButton:
             text: 'Count'
             icon: 'minus'
             font_size: sp(30)
             on_release: root.decrease_count()
+            pos_hint: {'center_x': 0.5}
     
     MDFillRoundFlatIconButton:
         icon: 'restart'
         text: 'RESET'
-        center_x: main_box.center_x
+        pos_hint: {"center_x": 0.5}
         top: main_box.y - dp(15)
         font_size: sp(30)
         on_release: root.reset_count_zero()
