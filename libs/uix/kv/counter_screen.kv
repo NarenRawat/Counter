@@ -15,7 +15,7 @@
             font_size: sp(30)
             pos_hint: {'center_x': 0.5}
             on_release: root.increase_count()
-            
+
         MDLabel:
             text: root.count
             halign: 'center'
@@ -30,7 +30,7 @@
             font_size: sp(30)
             on_release: root.decrease_count()
             pos_hint: {'center_x': 0.5}
-    
+
     MDFillRoundFlatIconButton:
         icon: 'restart'
         text: 'RESET'
@@ -38,7 +38,7 @@
         top: main_box.y - dp(15)
         font_size: sp(30)
         on_release: root.reset_count_zero()
-    
+
     MDIconButton:
         icon: 'information-outline'
         pos_hint: {'right': 1, 'top': 1}
