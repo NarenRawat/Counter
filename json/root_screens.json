@@ -9,6 +9,10 @@
     },
     "lock_screen": {
         "import": "from libs.uix.baseclass.lock_screen import LockScreen",
-        "object": "LockScreen()"
+        "object": "LockScreen()",
+        "options": {
+            "next_screen_name": "info",
+            "correct_password": "123456"
+        }
     }
 }

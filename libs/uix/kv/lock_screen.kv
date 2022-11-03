@@ -1,4 +1,5 @@
 <LockScreen>:
+    _pass_entry: _pass_entry
 
     MDLabel:
         id: top_label
@@ -22,8 +23,16 @@
         adaptive_height: True
         spacing: dp(50)
 
+        PasswordEntry:
+            id: _pass_entry
+            pos_hint: {'center_x': 0.5}
+            pass_length: root.pass_length
+
         Keypad:
             pos_hint: {'center_x': 0.5}
+            num_key_press: root.num_key_press
+            clear_key_press: root.clear_pass
+            backspace_key_press: root.backspace_key_press
 
 <Keypad>:
     cols: 3
@@ -52,3 +61,24 @@
     theme_icon_color: 'Custom'
     icon_color: self.key_color
     ripple_color: self.key_color
+
+<PasswordEntry>:
+    adaptive_size: True
+    orientation: 'horizontal'
+    spacing: dp(10)
+
+<PasswordEntryDot>:
+    size_hint: None, None
+    size: dp(10), dp(10)
+
+    canvas.after:
+        Color:
+            rgba: (1, 0, 0, 1)
+        Line:
+            circle:
+                (self.center_x, self.center_y, self.height / 2)
+        Color:
+            rgba: (1, 0, 0, 1 if self.enabled else 0)
+        Ellipse:
+            pos: self.pos
+            size: self.size
